@@ -1,0 +1,9 @@
+FROM healthcheck/postgres
+
+#Env variables
+ENV POSTGRES_USER postgres
+ENV POSTGRES_PASSWORD postgres
+ENV POSTGRES_DB tweets
+
+ADD ["migration/createTables.sql", "/docker-entrypoint-initdb.d/createTables.sql"]
+
